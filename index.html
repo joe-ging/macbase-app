@@ -553,7 +553,6 @@
         async function updateDownloadCount() {
             const counterEl = document.getElementById('download-counter');
             const countNumberEl = document.getElementById('download-count-number');
-            const baseOffset = 1; // Syncing the +1 lead from China (Tally current is 8 + 1 = 9)
 
             try {
                 // Fetch public form metadata from Tally
@@ -561,14 +560,13 @@
                 const data = await response.json();
 
                 if (data && typeof data.numberOfSubmissions === 'number') {
-                    const total = data.numberOfSubmissions + baseOffset;
-                    countNumberEl.textContent = total;
+                    countNumberEl.textContent = data.numberOfSubmissions;
                     counterEl.style.display = 'block';
                     countNumberEl.parentElement.classList.add('pulse-text');
                 }
             } catch (err) {
                 console.error("Tally sync failed:", err);
-                countNumberEl.textContent = "9";
+                countNumberEl.textContent = "8";
                 counterEl.style.display = 'block';
             }
         }

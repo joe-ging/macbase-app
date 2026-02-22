@@ -460,24 +460,22 @@
             });
         });
 
-        // 自动同步计数器: 基于 Tally.so 提交数 + 1 的偏移量
+        // 自动同步计数器: 基于 Tally.so 提交数
         async function updateDownloadCount() {
             const counterEl = document.getElementById('download-counter');
             const countNumberEl = document.getElementById('download-count-number');
-            const baseOffset = 1; // 同步来自中国的最新 lead (Tally 当前为 8 + 1 = 9)
 
             try {
                 const response = await fetch('https://api.tally.so/forms/QKDjA1');
                 const data = await response.json();
 
                 if (data && typeof data.numberOfSubmissions === 'number') {
-                    const total = data.numberOfSubmissions + baseOffset;
-                    countNumberEl.textContent = total;
+                    countNumberEl.textContent = data.numberOfSubmissions;
                     counterEl.style.display = 'block';
                 }
             } catch (err) {
                 console.error("Counter sync failed:", err);
-                countNumberEl.textContent = "9";
+                countNumberEl.textContent = "8";
                 counterEl.style.display = 'block';
             }
         }
