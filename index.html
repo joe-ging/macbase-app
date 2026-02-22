@@ -455,6 +455,38 @@
         </div>
     </section>
 
+    </section>
+
+    <!-- Star Incentive & Supporters -->
+    <section class="supporters"
+        style="background: var(--bg-deep); padding: 80px 20px; text-align: center; border-top: 1px solid var(--border-subtle);">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="section-badge">COMMUNITY</div>
+            <h2 style="font-size: 32px; margin-bottom: 16px;">Get on the <span class="text-neon">Supporters Wall</span>
+            </h2>
+            <p style="color: var(--text-secondary); margin-bottom: 32px;">
+                Whomever stars our project on GitHub will have their handle listed in the "Supporters" section of the
+                next release.
+                Help us grow the community and show your support for open-core Mac software!
+            </p>
+            <a href="https://github.com/joe-ging/macbase" class="btn-secondary" target="_blank"
+                style="margin-bottom: 48px;">
+                ⭐ Star macbase on GitHub
+            </a>
+
+            <div style="margin-top: 60px;">
+                <h3
+                    style="font-size: 18px; color: var(--text-muted); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 2px;">
+                    Phase 1 Supporters</h3>
+                <div
+                    style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; color: var(--text-secondary); font-family: monospace;">
+                    <span>@joe-ging</span>
+                    <span style="opacity: 0.3;">(Your Name Here)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA -->
     <section class="cta-section">
         <div class="cta-content">
@@ -486,6 +518,7 @@
                 <a href="#walkthrough">Features</a>
                 <a href="#compare">vs ChessBase</a>
                 <a href="https://github.com/joe-ging/macbase" target="_blank">GitHub</a>
+                <a href="YOUR_GOOGLE_FORM_LINK" target="_blank">🚩 Report a Bug</a>
                 <a href="https://theweekinchess.com/twic" target="_blank" class="twic-footer-link">♟️ Support TWIC</a>
             </div>
             <div class="footer-copy">
@@ -512,37 +545,18 @@
             });
         });
 
-        // Fetch download count from GitHub API
-        async function fetchDownloadCount() {
-            try {
-                // Fetch releases with a cache buster timestamp
-                const response = await fetch(`https://api.github.com/repos/joe-ging/macbase/releases?t=${Date.now()}`);
-                if (!response.ok) return;
+        // Manual counter based on Tally submissions (Starting from 8)
+        function updateDownloadCount() {
+            const initialCount = 8;
+            const counterEl = document.getElementById('download-counter');
+            const countNumberEl = document.getElementById('download-count-number');
 
-                const releases = await response.json();
-                let totalDownloads = 0;
-
-                // Sum downloads across all assets in all releases (if multiple)
-                releases.forEach(release => {
-                    release.assets.forEach(asset => {
-                        totalDownloads += asset.download_count;
-                    });
-                });
-
-                // Always show the counter so people know they are the first!
-                const counterEl = document.getElementById('download-counter');
-                const countNumberEl = document.getElementById('download-count-number');
-
-                if (counterEl && countNumberEl) {
-                    countNumberEl.textContent = totalDownloads;
-                    counterEl.style.display = 'block';
-                }
-            } catch (error) {
-                console.error("Could not fetch download count:", error);
+            if (counterEl && countNumberEl) {
+                countNumberEl.textContent = initialCount;
+                counterEl.style.display = 'block';
             }
         }
-
-        fetchDownloadCount();
+        updateDownloadCount();
     </script>
 </body>
 
