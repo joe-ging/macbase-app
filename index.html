@@ -549,14 +549,30 @@
             });
         });
 
-        // Manual counter based on Tally submissions (Starting from 8)
-        function updateDownloadCount() {
-            const initialCount = 9;
+        // Automated counter based on GitHub Stars + Offset (Base of 8)
+        async function updateDownloadCount() {
             const counterEl = document.getElementById('download-counter');
             const countNumberEl = document.getElementById('download-count-number');
+            const baseOffset = 8; // Starting at 8 since we already had 8 before autosync
 
-            if (counterEl && countNumberEl) {
-                countNumberEl.textContent = initialCount;
+            try {
+                // Fetch public repo metadata (cache-busting with timestamp)
+                const response = await fetch('https://api.github.com/repos/joe-ging/macbase', {
+                    headers: { 'Accept': 'application/vnd.github.v3+json' }
+                });
+                const data = await response.json();
+
+                if (data && typeof data.stargazers_count === 'number') {
+                    const total = data.stargazers_count + baseOffset;
+                    countNumberEl.textContent = total;
+                    counterEl.style.display = 'block';
+                    // Add a tiny 'live' pulse animation
+                    countNumberEl.parentElement.classList.add('pulse-text');
+                }
+            } catch (err) {
+                console.error("Failed to sync counter:", err);
+                // Fallback to 9
+                countNumberEl.textContent = "9";
                 counterEl.style.display = 'block';
             }
         }
