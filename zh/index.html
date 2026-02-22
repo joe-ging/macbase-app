@@ -56,7 +56,7 @@
 
         <div class="download-counter" id="download-counter"
             style="display: none; margin-bottom: 12px; font-size: 14px; color: var(--text-secondary); font-weight: 500;">
-            已有 <span id="download-count-number" class="text-neon" style="font-weight: 700;">0</span> / 100 名用户领取
+            已有 <span id="download-count-number" class="text-neon" style="font-weight: 700;">9</span> / 100 名用户领取
         </div>
 
         <div class="star-incentive" style="margin-bottom: 24px; font-size: 13px; color: var(--text-muted);">
@@ -85,8 +85,8 @@
         <div class="install-bypass"
             style="margin-top: 16px; padding: 12px; border-radius: 8px; background: rgba(255,100,100,0.05); border: 1px solid rgba(255,100,100,0.1); max-width: 500px; margin-left: auto; margin-right: auto;">
             <p style="font-size: 12px; color: var(--text-secondary); margin: 0;">
-                🛡️ <strong>10秒快速安装：</strong> 由于目前处于 Beta 阶段，请<strong>右键点击 (Control+Click)</strong>
-                应用并选择<strong>打开</strong>，即可绕过 macOS 的安全提示。
+                🛡️ <strong>10秒快速安装：</strong> 请<strong>右键点击 (Control+Click)</strong>
+                应用并选择<strong>打开</strong>。若提示仍未消失，请前往 <strong>系统设置 -> 隐私与安全性</strong>，点击 <strong>“仍要打开”</strong>。
                 <a href="https://github.com/joe-ging/macbase#installation" target="_blank"
                     style="color: var(--text-neon); text-decoration: none;">查看图文指南</a>
             </p>
@@ -485,7 +485,7 @@
                 }
             } catch (err) {
                 console.error("Counter sync failed:", err);
-                countNumberEl.textContent = "8";
+                countNumberEl.textContent = "9";
                 counterEl.style.display = 'block';
             }
         }
