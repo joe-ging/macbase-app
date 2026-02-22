@@ -567,7 +567,7 @@
 
             try {
                 // Fetch public form metadata from Tally
-                const response = await fetch('https://api.tally.so/forms/QKDjA1');
+                const response = await fetch('https://api.tally.so/forms/QKDjA1?_t=' + Date.now());
                 const data = await response.json();
 
                 if (data && typeof data.numberOfSubmissions === 'number') {
