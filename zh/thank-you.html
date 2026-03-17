@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预约成功！— Macbase 省心版</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        .thank-you-container {
+            max-width: 600px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.8s ease-out;
+        }
+        .check-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+            display: block;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+            font-size: 1.1rem;
+            color: #888;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+        .discount-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(186, 255, 41, 0.1);
+            border: 1px solid #baff29;
+            color: #baff29;
+            border-radius: 100px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <span class="check-icon">✨</span>
+        <div class="discount-badge">已锁定 5 折首发优惠</div>
+        <h1>您已加入省心版等候名单</h1>
+        <p>感谢您对 Macbase 优雅体验的支持。我们已记录您的预订，一旦 Apple 官方公证完成、一键安装包准备就绪，我们会第一时间通过邮件通知您。</p>
+        <a href="index.html" class="btn-primary">
+            返回主页
+        </a>
+    </div>
+</body>
+</html>

@@ -87,18 +87,67 @@
             </a>
         </div>
 
-        <div class="install-bypass"
-            style="margin-top: 16px; padding: 12px; border-radius: 8px; background: rgba(255,100,100,0.05); border: 1px solid rgba(255,100,100,0.1); max-width: 500px; margin-left: auto; margin-right: auto;">
-            <p style="font-size: 12px; color: var(--text-secondary); margin: 0;">
-                🛡️ <strong>10-Second Install:</strong> Right-click (Control+Click) the app and select
-                <strong>Open</strong>. On <strong>Sequoia (v15)</strong>, if the button is missing from System Settings,
-                open it immediately after the error (it only appears for 5 mins).
-                <a href="https://github.com/joe-ging/macbase#installation" target="_blank"
-                    style="color: var(--text-neon); text-decoration: none;">View Full Fix Guide</a>
-            </p>
+        <p class="hero-note">macOS 12+ · Apple Silicon & Intel</p>
+
+        <!-- Edition Selector / Pricing Table -->
+        <div class="edition-selector" id="editions">
+            <div class="edition-card geek">
+                <div class="edition-badge">OPEN CORE</div>
+                <h3>macbase <span class="text-neon">Geek</span></h3>
+                <div class="edition-price">$0</div>
+                <ul class="edition-features">
+                    <li>✅ Identical Analysis Engine</li>
+                    <li>✅ Full Feature Set</li>
+                    <li>🛠️ <strong>Manual Setup Required</strong></li>
+                    <li>🛠️ DIY Security Bypass</li>
+                    <li>🛠️ No Technical Support</li>
+                </ul>
+                <a href="https://tally.so/r/QKDjA1" class="btn-secondary" style="width: 100%; justify-content: center;">
+                    Manual Installation
+                </a>
+            </div>
+
+            <div class="edition-card secure popular">
+                <div class="edition-badge-secure">MOST POPULAR</div>
+                <h3>macbase <span class="text-neon">Elegant</span></h3>
+                <div class="edition-price">$9.9 <span class="price-small">/ Early Access</span></div>
+                <ul class="edition-features">
+                    <li>✅ Identical Analysis Engine</li>
+                    <li>🚀 <strong>1-Click, Automatic Install</strong></li>
+                    <li>✨ <strong>Apple Notarized & Signed</strong></li>
+                    <li>💎 <strong>Elegant, Hassle-free Experience</strong></li>
+                    <li>🖥️ Native App Wrapper (Tauri)</li>
+                </ul>
+                <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="openPreOrderModal()">
+                    Automatic Installation
+                </button>
+            </div>
         </div>
-        <p class="hero-note">macOS 12+ · Apple Silicon & Intel · Unsigned DMG (see install guide)</p>
     </section>
+
+    <!-- Pre-order Modal -->
+    <div id="preorder-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <h2>✨ Join the Elegant Waitlist</h2>
+                <p>Both versions feature the same powerful engine. The Elegant Edition is designed for users who value a 1-click, automatic installation and a refined setup process.</p>
+            </div>
+            <div class="modal-body">
+                <p>By joining now, you'll lock in the <strong>$9.9 Early Access</strong> price (50% off the final $19.9 retail) and be the first to get the secure, no-alert installer.</p>
+                <form id="preorder-form" onsubmit="handlePreorder(event)">
+                    <input type="email" id="preorder-email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                        Count Me In!
+                    </button>
+                </form>
+                <div id="modal-success" style="display: none; text-align: center; padding: 20px;">
+                    <div style="font-size: 40px; margin-bottom: 10px;">🎉</div>
+                    <p>You're on the list! We'll notify you the moment the Secure Edition is ready.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ===== FEATURE WALKTHROUGH ===== -->
     <section class="walkthrough" id="walkthrough">
@@ -583,6 +632,37 @@
             }
         }
         updateDownloadCount();
+
+        // Modal Logic
+        const modal = document.getElementById("preorder-modal");
+        
+        function openPreOrderModal() {
+            modal.style.display = "flex";
+            // Analytics: Track intent
+            console.log("Pre-order intent tracked");
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        async function handlePreorder(event) {
+            event.preventDefault();
+            const email = document.getElementById("preorder-email").value;
+            
+            console.log("Pre-order intent tracked:", email);
+            
+            // Redirect to Tally with pre-filled email
+            // Note: After submission on Tally, you can set the "Redirect on completion" 
+            // URL in Tally settings to your new thank-you.html page.
+            window.location.href = `https://tally.so/r/xXZPPk?email=${encodeURIComponent(email)}`;
+        }
     </script>
 </body>
 

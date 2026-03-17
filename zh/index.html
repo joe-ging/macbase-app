@@ -82,17 +82,67 @@
             </a>
         </div>
 
-        <div class="install-bypass"
-            style="margin-top: 16px; padding: 12px; border-radius: 8px; background: rgba(255,100,100,0.05); border: 1px solid rgba(255,100,100,0.1); max-width: 500px; margin-left: auto; margin-right: auto;">
-            <p style="font-size: 12px; color: var(--text-secondary); margin: 0;">
-                🛡️ <strong>10秒快速安装：</strong> 请<strong>右键点击 (Control+Click)</strong>
-                应用并选择<strong>打开</strong>。若提示仍未消失，请前往 <strong>系统设置 -> 隐私与安全性</strong>，点击 <strong>“仍要打开”</strong>。
-                <a href="https://github.com/joe-ging/macbase#installation" target="_blank"
-                    style="color: var(--text-neon); text-decoration: none;">查看图文指南</a>
-            </p>
+        <p class="hero-note">支持 macOS 12+ · Apple 芯片及 Intel</p>
+
+        <!-- 版本选择 / 定价表格 -->
+        <div class="edition-selector" id="editions">
+            <div class="edition-card geek">
+                <div class="edition-badge">核心开源</div>
+                <h3>macbase <span class="text-neon">极客版</span></h3>
+                <div class="edition-price">￥0</div>
+                <ul class="edition-features">
+                    <li>✅ 共享同款分析引擎</li>
+                    <li>✅ 完整功能闭环</li>
+                    <li>🛠️ <strong>需手动安装设置</strong></li>
+                    <li>🛠️ 需自行绕过系统预警</li>
+                    <li>🛠️ 暂不提供技术支持</li>
+                </ul>
+                <a href="https://tally.so/r/QKDjA1" class="btn-secondary" style="width: 100%; justify-content: center;">
+                    手动安装 (较复杂)
+                </a>
+            </div>
+
+            <div class="edition-card secure popular">
+                <div class="edition-badge-secure">最受欢迎</div>
+                <h3>macbase <span class="text-neon">省心版</span></h3>
+                <div class="edition-price">￥69 <span class="price-small">/ 抢先体验</span></div>
+                <ul class="edition-features">
+                    <li>✅ 共享同款分析引擎</li>
+                    <li>🚀 <strong>一键自动安装</strong></li>
+                    <li>✨ <strong>经 Apple 官方签名公证</strong></li>
+                    <li>💎 <strong>极简、省心的使用体验</strong></li>
+                    <li>🖥️ 原生 App 透明外壳 (Tauri)</li>
+                </ul>
+                <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="openPreOrderModal()">
+                    自动安装 (省心丝滑)
+                </button>
+            </div>
         </div>
-        <p class="hero-note">支持 macOS 12+ · Apple 芯片及 Intel · 未签名 DMG (详见安装指南)</p>
     </section>
+
+    <!-- 预订弹窗 -->
+    <div id="preorder-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <h2>✨ 加入省心版等候名单</h2>
+                <p>两款版本的核心引擎完全一致。省心版专为追求「一键自动安装」且不希望处理复杂安全设置的用户设计。</p>
+            </div>
+            <div class="modal-body">
+                <p>现在加入，您将锁定 <strong>￥69 抢先体验价</strong>（正式版预计 ￥128）并在安全版发布时第一时间获得无预警安装包。</p>
+                <form id="preorder-form" onsubmit="handlePreorder(event)">
+                    <input type="email" id="preorder-email" placeholder="输入您的电子邮箱" required>
+                    <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                        加入等候名单
+                    </button>
+                </form>
+                <div id="modal-success" style="display: none; text-align: center; padding: 20px;">
+                    <div style="font-size: 40px; margin-bottom: 10px;">🎉</div>
+                    <p>已加入名单！安全版准备就绪后，我们会第一时间通知您。</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ===== 功能演示 ===== -->
     <section class="walkthrough" id="walkthrough">
@@ -490,6 +540,35 @@
             }
         }
         updateDownloadCount();
+
+        // 弹窗逻辑
+        const modal = document.getElementById("preorder-modal");
+        
+        function openPreOrderModal() {
+            modal.style.display = "flex";
+            console.log("Pre-order intent tracked (ZH)");
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        async function handlePreorder(event) {
+            event.preventDefault();
+            const email = document.getElementById("preorder-email").value;
+
+            console.log("Pre-order intent tracked (ZH):", email);
+            
+            // 跳转到 Tally 等候名单，并自动填充邮箱
+            // 注意：在 Tally 后台，您可以将“提交后跳转”设置为您的 zh/thank-you.html
+            window.location.href = `https://tally.so/r/xXZPPk?email=${encodeURIComponent(email)}`;
+        }
     </script>
 </body>
 
