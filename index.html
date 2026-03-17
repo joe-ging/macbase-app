@@ -651,15 +651,9 @@
         }
 
         async function handlePreorder(event) {
-            event.preventDefault();
-            const email = document.getElementById("preorder-email").value;
-            
-            console.log("Pre-order intent tracked:", email);
-            
-            // Redirect to Tally with pre-filled email
-            // Note: After submission on Tally, you can set the "Redirect on completion" 
-            // URL in Tally settings to your new thank-you.html page.
-            window.location.href = `https://tally.so/r/xXZPPk?email=${encodeURIComponent(email)}`;
+            // This function is now deprecated and links are direct <a> tags
+            // Keeping for structure but redirecting via HTML is cleaner
+            window.location.href = "https://tally.so/r/xXZPPk";
         }
     </script>
 </body>

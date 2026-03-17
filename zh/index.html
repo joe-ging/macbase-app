@@ -558,14 +558,7 @@
         }
 
         async function handlePreorder(event) {
-            event.preventDefault();
-            const email = document.getElementById("preorder-email").value;
-
-            console.log("Pre-order intent tracked (ZH):", email);
-            
-            // 跳转到 Tally 等候名单，并自动填充邮箱
-            // 注意：在 Tally 后台，您可以将“提交后跳转”设置为您的 zh/thank-you.html
-            window.location.href = `https://tally.so/r/xXZPPk?email=${encodeURIComponent(email)}`;
+            window.location.href = "https://tally.so/r/xXZPPk";
         }
     </script>
 </body>
