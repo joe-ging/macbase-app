@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=2.1">
 </head>
 
 <body>
@@ -40,7 +40,7 @@
 
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-badge">OPEN CORE · PRO BETA · LOCAL-FIRST</div>
+        <div class="hero-badge">OPEN CORE · PRO BETA (v2.1) · LOCAL-FIRST</div>
         <h1 class="hero-title">
             Chess analysis<br>
             <span class="text-neon">built for Mac.</span>
@@ -118,7 +118,7 @@
                     <li>✨ <strong>Apple Notarized & Signed</strong></li>
                     <li>💎 <strong>Elegant, Hassle-free Experience</strong></li>
                 </ul>
-                <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="openPreOrderModal()">
+                <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="openWaitlistModal()">
                     Automatic Installation
                 </button>
             </div>
@@ -126,9 +126,9 @@
     </section>
 
     <!-- Pre-order Informative Modal -->
-    <div id="preorder-modal" class="modal">
+    <div id="waitlist-modal-v21" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
+            <span class="close" onclick="closeWaitlistModal()">&times;</span>
             <div class="modal-header">
                 <h2>✨ Join the Elegant Waitlist</h2>
                 <p>Both versions feature the same powerful engine. The Elegant Edition is designed for users who value a 1-click, automatic installation and a refined setup process.</p>
@@ -631,29 +631,21 @@
         }
         updateDownloadCount();
 
-        // Modal Logic
-        const modal = document.getElementById("preorder-modal");
+        // Modal Logic v2.1
+        const modal = document.getElementById("waitlist-modal-v21");
         
-        function openPreOrderModal() {
+        function openWaitlistModal() {
             modal.style.display = "flex";
-            // Analytics: Track intent
-            console.log("Pre-order intent tracked");
         }
 
-        function closeModal() {
+        function closeWaitlistModal() {
             modal.style.display = "none";
         }
 
         window.onclick = function(event) {
             if (event.target == modal) {
-                closeModal();
+                closeWaitlistModal();
             }
-        }
-
-        async function handlePreorder(event) {
-            // This function is now deprecated and links are direct <a> tags
-            // Keeping for structure but redirecting via HTML is cleaner
-            window.location.href = "https://tally.so/r/xXZPPk";
         }
     </script>
 </body>
