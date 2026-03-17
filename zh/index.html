@@ -212,10 +212,16 @@
                             <img src="../screenshots/database.png" alt="macbase 对局列表" loading="lazy">
                         </div>
                     </div>
+                    <div class="carousel-slide">
+                        <div class="feature-screenshot">
+                            <img src="../screenshots/database3.png" alt="macbase ECO 代码搜索" loading="lazy">
+                        </div>
+                    </div>
                 </div>
                 <div class="carousel-dots">
                     <button class="carousel-dot active" data-index="0" aria-label="Screenshot 1"></button>
                     <button class="carousel-dot" data-index="1" aria-label="Screenshot 2"></button>
+                    <button class="carousel-dot" data-index="2" aria-label="Screenshot 3"></button>
                 </div>
             </div>
         </div>
@@ -253,10 +259,16 @@
                             <img src="../screenshots/analysis1.png" alt="macbase 引擎分析" loading="lazy">
                         </div>
                     </div>
+                    <div class="carousel-slide">
+                        <div class="feature-screenshot">
+                            <img src="../screenshots/analysis3.png" alt="macbase 文本标注与导出" loading="lazy">
+                        </div>
+                    </div>
                 </div>
                 <div class="carousel-dots">
                     <button class="carousel-dot active" data-index="0" aria-label="Screenshot 1"></button>
                     <button class="carousel-dot" data-index="1" aria-label="Screenshot 2"></button>
+                    <button class="carousel-dot" data-index="2" aria-label="Screenshot 3"></button>
                 </div>
             </div>
         </div>
@@ -311,6 +323,11 @@
                     但 macbase 有。查看当前等级分范围内胜率最高的开局。
                     通过最新的 TWIC 期号追踪开局流行度趋势。
                 </p>
+                <p>
+                    <strong>弥补线上与线下差距：</strong> 也许您在 Lichess 上的分值是 2000，但在现实中对应多少 FIDE 等级分？
+                    参考 1700、1800、1900 等各级 FIDE 棋手的实战对局 — 看看他们在玩什么开局，
+                    在您亲自坐到棋盘前，先让您的备赛与现实接轨。
+                </p>
                 <ul class="feature-bullets">
                     <li>按等级分查看胜率 — 过滤 1700-2000, 2000-2200, 2200-2500, 2500+</li>
                     <li>黑白双方的最佳开局见解</li>
@@ -322,12 +339,18 @@
                 <div class="carousel-viewport">
                     <div class="carousel-slide active">
                         <div class="feature-screenshot">
-                            <img src="../screenshots/insight1.png" alt="macbase 开局见解" loading="lazy">
+                            <img src="../screenshots/insight1.png" alt="macbase 开局胜率见解" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="feature-screenshot">
+                            <img src="../screenshots/insight2.png" alt="macbase 开局趋势见解" loading="lazy">
                         </div>
                     </div>
                 </div>
                 <div class="carousel-dots">
                     <button class="carousel-dot active" data-index="0" aria-label="Screenshot 1"></button>
+                    <button class="carousel-dot" data-index="1" aria-label="Screenshot 2"></button>
                 </div>
             </div>
         </div>
@@ -383,7 +406,7 @@
                 <tbody>
                     <tr>
                         <td>价格</td>
-                        <td class="highlight"><span class="badge-free">一次性</span></td>
+                        <td class="highlight"><span class="badge-free">一次买断</span></td>
                         <td>$199+/年 (订阅制)</td>
                         <td>免费</td>
                     </tr>
@@ -406,6 +429,12 @@
                         <td>⚠️ 仅线上</td>
                     </tr>
                     <tr>
+                        <td>数据库容量</td>
+                        <td class="highlight">✅ 无限制 (本地)</td>
+                        <td>✅ 海量 (需付费)</td>
+                        <td>⚠️ 仅限云端</td>
+                    </tr>
+                    <tr>
                         <td>线下 OTB 对局</td>
                         <td class="highlight">✅ 完整 TWIC 归档</td>
                         <td>✅</td>
@@ -418,10 +447,40 @@
                         <td>❌ 云端</td>
                     </tr>
                     <tr>
+                        <td>Stockfish 引擎</td>
+                        <td class="highlight">✅ 内置内置</td>
+                        <td>✅ 需额外安装</td>
+                        <td>✅ 云端</td>
+                    </tr>
+                    <tr>
+                        <td>绘制箭头与方格</td>
+                        <td class="highlight">✅ 绿、粉、黄</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>PGN 文本标注</td>
+                        <td class="highlight">✅ 内置注释</td>
+                        <td>✅</td>
+                        <td>⚠️ 功能有限</td>
+                    </tr>
+                    <tr>
+                        <td>导出带标注 PGN</td>
+                        <td class="highlight">✅ 完整支持</td>
+                        <td>✅</td>
+                        <td>⚠️ 功能有限</td>
+                    </tr>
+                    <tr>
                         <td>闪存卡系统</td>
                         <td class="highlight">✅ 剪辑与练习</td>
                         <td>❌</td>
                         <td>❌</td>
+                    </tr>
+                    <tr>
+                        <td>FIDE 等级分见解</td>
+                        <td class="highlight">✅ OTB 数据</td>
+                        <td>✅</td>
+                        <td>⚠️ 仅限网棋分</td>
                     </tr>
                     <tr>
                         <td>隐私保护</td>
@@ -499,6 +558,9 @@
             </div>
             <div class="footer-copy">
                 Built with ♟️ by joe-ging · 2026
+                <br><span style="font-size: 11px; color: var(--text-muted);">对局数据由 <a
+                        href="https://theweekinchess.com/" target="_blank" style="color: var(--text-secondary);">The
+                        Week in Chess</a> (TWIC) 自 1994 年起提供。</span>
             </div>
         </div>
     </footer>
