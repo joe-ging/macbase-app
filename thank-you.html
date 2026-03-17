@@ -31,17 +31,18 @@
             display: block;
         }
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 16px;
             background: linear-gradient(135deg, #fff 0%, #a0a0a0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-secondary);
             line-height: 1.6;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
         .discount-badge {
             display: inline-block;
@@ -52,6 +53,13 @@
             border-radius: 100px;
             font-weight: 600;
             margin-bottom: 24px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        .divider {
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            margin: 30px 0;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -62,11 +70,22 @@
 <body>
     <div class="thank-you-container">
         <span class="check-icon">✨</span>
-        <div class="discount-badge">50% DISCOUNT RESERVED</div>
-        <h1>You're on the Elegant Waitlist</h1>
-        <p>Thank you for your interest in the signed, hassle-free version of Macbase. We've recorded your preference and will notify you the moment the Apple-certified installer is ready.</p>
-        <a href="index.html" class="btn-primary" style="display: inline-flex; align-items: center;">
-            Back to Home
+        <div class="discount-badge">50% DISCOUNT RESERVED / 已锁定 5 折优惠</div>
+        
+        <div class="lang-en">
+            <h1>You're on the Elegant Waitlist</h1>
+            <p>Thank you for your interest! We've recorded your preference and will notify you the moment the Apple-certified, hassle-free installer is ready.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="lang-zh">
+            <h1 style="font-size: 1.8rem;">您已加入省心版等候名单</h1>
+            <p>感谢您的支持！我们已记录您的预订，一旦 Apple 官方公证完成、一键安装包准备就绪，我们会第一时间通知您。</p>
+        </div>
+
+        <a href="index.html" class="btn-primary" style="display: inline-flex; align-items: center; margin-top: 20px;">
+            Back to Home / 返回首页
         </a>
     </div>
 </body>
