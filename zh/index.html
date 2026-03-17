@@ -113,36 +113,14 @@
                     <li>✨ <strong>经 Apple 官方签名公证</strong></li>
                     <li>💎 <strong>极简、省心的使用体验</strong></li>
                 </ul>
-                <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="openPreOrderModal()">
+                <a href="https://tally.so/r/xXZPPk" class="btn-primary" style="width: 100%; justify-content: center; text-decoration: none;">
                     自动安装 (省心丝滑)
-                </button>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- 预订弹窗 -->
-    <div id="preorder-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div class="modal-header">
-                <h2>✨ 加入省心版等候名单</h2>
-                <p>两款版本的核心引擎完全一致。省心版专为追求「一键自动安装」且不希望处理复杂安全设置的用户设计。</p>
-            </div>
-            <div class="modal-body">
-                <p>现在加入，您将锁定 <strong>￥99 抢先体验价</strong>（一次性买断，无订阅费）并在安全版发布时第一时间获得无预警安装包。</p>
-                <form id="preorder-form" onsubmit="handlePreorder(event)">
-                    <input type="email" id="preorder-email" placeholder="输入您的电子邮箱" required>
-                    <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
-                        加入等候名单
-                    </button>
-                </form>
-                <div id="modal-success" style="display: none; text-align: center; padding: 20px;">
-                    <div style="font-size: 40px; margin-bottom: 10px;">🎉</div>
-                    <p>已加入名单！安全版准备就绪后，我们会第一时间通知您。</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- 预订弹窗 (已移除，直接跳转 Tally 减少表单摩擦) -->
 
     <!-- ===== 功能演示 ===== -->
     <section class="walkthrough" id="walkthrough">
